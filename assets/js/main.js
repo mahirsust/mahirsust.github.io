@@ -34,6 +34,10 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => observer.observe(section));
 
 // Smooth scroll for all anchor links
+document.querySelector('.nav-logo').addEventListener('click', function (e) {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
@@ -51,6 +55,7 @@ window.addEventListener('scroll', () => {
     nav.style.boxShadow = '0 1px 8px rgba(0,0,0,0.08)';
   } else {
     nav.style.boxShadow = 'none';
+    navLinks.forEach(link => link.classList.remove('active'));
   }
 });
 

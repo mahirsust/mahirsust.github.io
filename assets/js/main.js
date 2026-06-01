@@ -1,3 +1,19 @@
+// Mobile hamburger menu
+const hamburger = document.querySelector('.nav-hamburger');
+const navMenu = document.querySelector('.nav-links');
+hamburger.addEventListener('click', () => {
+  const open = navMenu.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+  });
+});
+
 // Highlight active nav link on scroll
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');

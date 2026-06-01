@@ -27,7 +27,7 @@
   --shadow-lg: 0 10px 15px rgba(0,0,0,0.07), 0 4px 6px rgba(0,0,0,0.05);
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 
 body {
   background: var(--bg);
@@ -101,6 +101,7 @@ nav {
   white-space: nowrap;
 }
 .nav-links a:hover { color: var(--text); background: var(--surface); }
+.nav-links a.active { color: var(--text); font-weight: 600; }
 
 .nav-cta {
   background: var(--accent) !important;
@@ -110,6 +111,31 @@ nav {
   font-weight: 600 !important;
 }
 .nav-cta:hover { background: var(--accent-hover) !important; }
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  cursor: pointer;
+  padding: 6px;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--text2);
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ── HERO ── */
 .hero {
@@ -640,6 +666,22 @@ footer {
   .nav-links a { font-size: 12px; padding: 0.35rem 0.5rem; }
 }
 @media(max-width:900px){
+  .nav-hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0; right: 0;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 0.75rem 1rem 1rem;
+    gap: 2px;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; width: 100%; padding: 0.55rem 0.75rem; }
   .nav-inner{padding:0 1rem}
   .hero{grid-template-columns:1fr;padding:6rem 1rem 3rem;gap:2rem;min-height:auto}
   section{padding:3.5rem 1rem}

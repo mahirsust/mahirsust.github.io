@@ -1,0 +1,184 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="topBar" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- White background: #ffffff -->
+  <rect width="1200" height="630" fill="#ffffff"/>
+
+  <!-- Top gradient accent bar -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#topBar)"/>
+
+  <!-- Panel divider -->
+  <line x1="700" y1="30" x2="700" y2="600" stroke="#e9ecef" stroke-width="1"/>
+
+  <!-- ===== LEFT PANEL ===== -->
+
+  <!-- Open to work badge (mirrors .hero-badge style) -->
+  <rect x="72" y="56" width="344" height="30" rx="15" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <circle cx="91" cy="71" r="5" fill="#2563eb"/>
+  <text x="104" y="76" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="600" fill="#1e40af">Open to work · Full-time &amp; Part-time · Germany</text>
+
+  <!-- h1: "Muhammad Mahir Hasan" in #111827 -->
+  <text x="72" y="162" font-family="Arial Black, Arial, sans-serif" font-size="46" font-weight="800" fill="#111827" letter-spacing="-1.5">Muhammad Mahir Hasan</text>
+
+  <!-- h1 span: "Chowdhury" in accent blue #2563eb -->
+  <text x="72" y="216" font-family="Arial Black, Arial, sans-serif" font-size="46" font-weight="800" fill="#2563eb" letter-spacing="-1.5">Chowdhury</text>
+
+  <!-- Role chip: AI Engineer (matches .role-chip.blue) -->
+  <rect x="72" y="240" width="138" height="30" rx="15" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="141" y="260" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="#2563eb" text-anchor="middle">AI Engineer</text>
+
+  <!-- Role chip: Full-Stack Developer (matches .role-chip.teal) -->
+  <rect x="222" y="240" width="202" height="30" rx="15" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+  <text x="323" y="260" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="#0f766e" text-anchor="middle">Full-Stack Developer</text>
+
+  <!-- Description, color #6b7280 -->
+  <text x="72" y="304" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#6b7280">Building intelligent systems with LLMs and RAG pipelines.</text>
+  <text x="72" y="326" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#6b7280">M.Sc. Data Science · TU Dortmund · 2+ years in Germany.</text>
+
+  <!-- Stats divider -->
+  <line x1="72" y1="362" x2="648" y2="362" stroke="#e9ecef" stroke-width="1"/>
+
+  <!-- Stat: 2+ Years -->
+  <text x="72" y="394" font-family="Arial Black, Arial, sans-serif" font-size="26" font-weight="700" fill="#111827">2+</text>
+  <text x="72" y="412" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" fill="#9ca3af" letter-spacing="0.6">Years Exp.</text>
+  <line x1="166" y1="372" x2="166" y2="418" stroke="#e9ecef" stroke-width="1"/>
+
+  <!-- Stat: 700+ Problems -->
+  <text x="182" y="394" font-family="Arial Black, Arial, sans-serif" font-size="26" font-weight="700" fill="#111827">700+</text>
+  <text x="182" y="412" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" fill="#9ca3af" letter-spacing="0.6">Problems Solved</text>
+  <line x1="314" y1="372" x2="314" y2="418" stroke="#e9ecef" stroke-width="1"/>
+
+  <!-- Stat: 3 Publications -->
+  <text x="330" y="394" font-family="Arial Black, Arial, sans-serif" font-size="26" font-weight="700" fill="#111827">3</text>
+  <text x="330" y="412" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" fill="#9ca3af" letter-spacing="0.6">Publications</text>
+  <line x1="432" y1="372" x2="432" y2="418" stroke="#e9ecef" stroke-width="1"/>
+
+  <!-- Stat: BMW star -->
+  <text x="448" y="394" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#f59e0b">★</text>
+  <text x="448" y="412" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" fill="#9ca3af" letter-spacing="0.6">BMW Challenge Winner</text>
+
+  <!-- Skill tags (matches .tag style from skills section) -->
+  <rect x="72" y="446" width="66" height="26" rx="13" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1"/>
+  <text x="105" y="464" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#0f766e" text-anchor="middle">Python</text>
+
+  <rect x="148" y="446" width="46" height="26" rx="13" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1"/>
+  <text x="171" y="464" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#0f766e" text-anchor="middle">PHP</text>
+
+  <rect x="204" y="446" width="70" height="26" rx="13" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="239" y="464" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#2563eb" text-anchor="middle">FastAPI</text>
+
+  <rect x="284" y="446" width="64" height="26" rx="13" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="316" y="464" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#2563eb" text-anchor="middle">LLMs</text>
+
+  <rect x="358" y="446" width="48" height="26" rx="13" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="382" y="464" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#2563eb" text-anchor="middle">RAG</text>
+
+  <rect x="416" y="446" width="62" height="26" rx="13" fill="#f1f3f5" stroke="#dee2e6" stroke-width="1"/>
+  <text x="447" y="464" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#374151" text-anchor="middle">Docker</text>
+
+  <rect x="488" y="446" width="56" height="26" rx="13" fill="#f1f3f5" stroke="#dee2e6" stroke-width="1"/>
+  <text x="516" y="464" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#374151" text-anchor="middle">CI/CD</text>
+
+  <!-- Contact info row -->
+  <text x="72" y="516" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#9ca3af">github.com/mahirsust</text>
+  <text x="237" y="516" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#9ca3af" text-anchor="middle">·</text>
+  <text x="264" y="516" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#9ca3af">linkedin.com/in/mahir-hasan</text>
+  <text x="467" y="516" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#9ca3af" text-anchor="middle">·</text>
+  <text x="492" y="516" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#9ca3af">mahirhasancse@gmail.com</text>
+
+  <!-- Bottom divider -->
+  <line x1="72" y1="554" x2="648" y2="554" stroke="#f1f3f5" stroke-width="1"/>
+
+  <!-- mahir.dev branding (matches .nav-logo style) -->
+  <text x="72" y="590" font-family="Arial Black, Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">mahir</text>
+  <text x="129" y="590" font-family="Arial Black, Arial, sans-serif" font-size="18" font-weight="800" fill="#2563eb">.</text>
+  <!-- .nav-logo-ext: light blue pill background behind "dev" -->
+  <rect x="135" y="573" width="40" height="22" rx="5" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="137" y="590" font-family="Arial Black, Arial, sans-serif" font-size="17" font-weight="700" fill="#2563eb">dev</text>
+  <text x="186" y="590" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#9ca3af"> · mahirsust.github.io</text>
+
+  <!-- ===== RIGHT PANEL: DARK CODE CARD (mirrors .hero-card) ===== -->
+
+  <!-- Card body, background #111827 -->
+  <rect x="730" y="36" width="408" height="390" rx="12" fill="#111827"/>
+
+  <!-- Card header (background: #1f2937, matches .hero-card-header) -->
+  <rect x="730" y="36" width="408" height="42" rx="12" fill="#1f2937"/>
+  <rect x="730" y="60" width="408" height="18" fill="#1f2937"/>
+
+  <!-- Traffic light dots (.hc-red, .hc-yellow, .hc-green) -->
+  <circle cx="758" cy="57" r="6" fill="#ef4444" opacity="0.9"/>
+  <circle cx="778" cy="57" r="6" fill="#f59e0b" opacity="0.9"/>
+  <circle cx="798" cy="57" r="6" fill="#10b981" opacity="0.9"/>
+
+  <!-- Filename (.hero-card-title, color: #6b7280) -->
+  <text x="934" y="62" font-family="Courier New, monospace" font-size="12" fill="#6b7280" text-anchor="middle">whoami.py</text>
+
+  <!-- Code lines (matches .hero-card-body, font-size 12.5px, line-height 2) -->
+  <!-- c-gray: #6b7280  c-blue: #60a5fa  c-yellow: #fbbf24  c-purple: #a78bfa  c-green: #34d399 -->
+  <text x="756" y="108" font-family="Courier New, monospace" font-size="13" fill="#6b7280" font-style="italic"># Developer profile</text>
+
+  <text x="756" y="154" font-family="Courier New, monospace" font-size="13">
+    <tspan fill="#60a5fa">name</tspan><tspan fill="#d1d5db">     = </tspan><tspan fill="#fbbf24">"Muhammad Mahir Hasan Chowdhury"</tspan>
+  </text>
+
+  <text x="756" y="178" font-family="Courier New, monospace" font-size="13">
+    <tspan fill="#60a5fa">roles</tspan><tspan fill="#d1d5db">    = </tspan><tspan fill="#a78bfa">[</tspan><tspan fill="#fbbf24">"AI Engineer"</tspan><tspan fill="#ffffff">, </tspan><tspan fill="#fbbf24">"Full-stack Developer"</tspan><tspan fill="#a78bfa">]</tspan>
+  </text>
+
+  <text x="756" y="202" font-family="Courier New, monospace" font-size="13">
+    <tspan fill="#60a5fa">location</tspan><tspan fill="#d1d5db"> = </tspan><tspan fill="#fbbf24">"Essen, Germany"</tspan>
+  </text>
+
+  <text x="756" y="226" font-family="Courier New, monospace" font-size="13">
+    <tspan fill="#60a5fa">degree</tspan><tspan fill="#d1d5db">   = </tspan><tspan fill="#fbbf24">"M.Sc. Data Science @ TU Dortmund"</tspan>
+  </text>
+
+  <text x="756" y="250" font-family="Courier New, monospace" font-size="13">
+    <tspan fill="#60a5fa">stack</tspan><tspan fill="#d1d5db">    = </tspan><tspan fill="#a78bfa">[</tspan><tspan fill="#34d399">"Python"</tspan><tspan fill="#ffffff">, </tspan><tspan fill="#34d399">"PHP"</tspan><tspan fill="#ffffff">, </tspan><tspan fill="#34d399">"LLMs"</tspan><tspan fill="#a78bfa">]</tspan>
+  </text>
+
+  <text x="756" y="274" font-family="Courier New, monospace" font-size="13">
+    <tspan fill="#60a5fa">cp_solved</tspan><tspan fill="#d1d5db">= </tspan><tspan fill="#fbbf24">700</tspan><tspan fill="#34d399" font-style="italic">  # problems</tspan>
+  </text>
+
+  <text x="756" y="298" font-family="Courier New, monospace" font-size="13">
+    <tspan fill="#60a5fa">open_to</tspan><tspan fill="#d1d5db">  = </tspan><tspan fill="#a78bfa">[</tspan><tspan fill="#fbbf24">"Full-time"</tspan><tspan fill="#ffffff">, </tspan><tspan fill="#fbbf24">"Part-time"</tspan><tspan fill="#a78bfa">]</tspan>
+  </text>
+
+  <text x="756" y="344" font-family="Courier New, monospace" font-size="13" fill="#6b7280" font-style="italic"># ✓ Ready to contribute</text>
+
+
+  <!-- INFO CARDS 2×2 (mirrors .hero-info-grid / .info-card) -->
+  <!-- Row 1, y=442 -->
+  <rect x="730" y="442" width="196" height="70" rx="8" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1"/>
+  <rect x="748" y="457" width="32" height="32" rx="8" fill="#eff6ff"/>
+  <text x="764" y="478" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="middle">⚡</text>
+  <text x="792" y="470" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827">LLMs</text>
+  <text x="792" y="486" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#9ca3af">RAG · Prompt Eng.</text>
+
+  <rect x="942" y="442" width="196" height="70" rx="8" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1"/>
+  <rect x="960" y="457" width="32" height="32" rx="8" fill="#f0fdfa"/>
+  <text x="976" y="478" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="middle">⚙️</text>
+  <text x="1004" y="470" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827">APIs</text>
+  <text x="1004" y="486" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#9ca3af">FastAPI · Laravel</text>
+
+  <!-- Row 2, y=522 -->
+  <rect x="730" y="522" width="196" height="70" rx="8" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1"/>
+  <rect x="748" y="537" width="32" height="32" rx="8" fill="#fffbeb"/>
+  <text x="764" y="558" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="middle">📊</text>
+  <text x="792" y="550" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827">Data</text>
+  <text x="792" y="566" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#9ca3af">ML · Python</text>
+
+  <rect x="942" y="522" width="196" height="70" rx="8" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1"/>
+  <rect x="960" y="537" width="32" height="32" rx="8" fill="#f1f3f5"/>
+  <text x="976" y="558" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="middle">🐳</text>
+  <text x="1004" y="550" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827">DevOps</text>
+  <text x="1004" y="566" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#9ca3af">Docker · CI/CD</text>
+
+</svg>

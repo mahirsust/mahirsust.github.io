@@ -111,7 +111,30 @@ function toggleChat(open) {
   chatOpen = open;
   chatWin.classList.toggle("open", chatOpen);
   chatFab.classList.toggle("open", chatOpen);
-  if (chatOpen) { chatInput.focus(); chatScrollBottom(); }
+  if (chatOpen) {
+    chatInput.focus();
+    chatScrollBottom();
+  } else {
+    chatWin.style.bottom = "";
+    chatWin.style.maxHeight = "";
+  }
+}
+
+if (window.visualViewport) {
+  function adjustChatForKeyboard() {
+    if (!chatOpen) return;
+    const vv = window.visualViewport;
+    const keyboardHeight = window.innerHeight - vv.height - vv.offsetTop;
+    if (keyboardHeight > 50) {
+      chatWin.style.bottom = (keyboardHeight + 8) + "px";
+      chatWin.style.maxHeight = (vv.height - 16) + "px";
+    } else {
+      chatWin.style.bottom = "";
+      chatWin.style.maxHeight = "";
+    }
+    chatScrollBottom();
+  }
+  window.visualViewport.addEventListener("resize", adjustChatForKeyboard);
 }
 
 chatFab.addEventListener("click", () => toggleChat(!chatOpen));

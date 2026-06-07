@@ -669,6 +669,8 @@ footer {
   .nav-links a { font-size: 12px; padding: 0.35rem 0.5rem; }
 }
 @media(max-width:900px){
+  body.chat-open { overflow: hidden; }
+
   .nav-hamburger { display: flex; }
   .nav-links {
     display: none;
@@ -709,6 +711,7 @@ footer {
     bottom: 84px;
     max-height: 70vh;
   }
+  #chat-input { font-size: 16px; }
 }
 
 /* ── SVG ICONS ── */

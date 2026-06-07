@@ -111,6 +111,7 @@ function toggleChat(open) {
   chatOpen = open;
   chatWin.classList.toggle("open", chatOpen);
   chatFab.classList.toggle("open", chatOpen);
+  document.body.classList.toggle("chat-open", chatOpen);
   if (chatOpen) {
     chatInput.focus();
     chatScrollBottom();

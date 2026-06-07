@@ -421,6 +421,53 @@
   </div>
 </footer>
 
+<button id="chat-fab" aria-label="Open portfolio chat">
+  <svg class="fab-open" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+  <svg class="fab-close" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+  </svg>
+</button>
+
+<div id="chat-window" role="dialog" aria-label="Portfolio chatbot">
+  <div id="chat-header">
+    <div class="chat-avatar">M</div>
+    <div class="chat-header-info">
+      <div class="chat-header-name">Ask about Mahir</div>
+      <div class="chat-header-sub">
+        <span class="chat-dot"></span> AI assistant · Powered by Gemini
+      </div>
+    </div>
+  </div>
+  <div id="chat-messages">
+    <div class="msg msg-bot">
+      Hi! I'm Mahir's portfolio assistant. Ask me anything about his experience, projects, skills, or education.
+    </div>
+  </div>
+  <div id="chat-chips">
+    <button class="chip" onclick="sendChip(this)">What's his experience?</button>
+    <button class="chip" onclick="sendChip(this)">Tech stack?</button>
+    <button class="chip" onclick="sendChip(this)">Recent projects?</button>
+    <button class="chip" onclick="sendChip(this)">Open to work?</button>
+  </div>
+  <div id="chat-input-bar">
+    <input
+      id="chat-input"
+      type="text"
+      placeholder="Ask a question…"
+      maxlength="300"
+      autocomplete="off"
+    />
+    <button id="chat-send" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"/>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
 <script src="assets/js/main.js"></script>
 </body>
 </html>

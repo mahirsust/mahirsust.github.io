@@ -141,6 +141,16 @@ if (window.visualViewport) {
 chatFab.addEventListener("click", () => toggleChat(!chatOpen));
 document.getElementById("chat-header").addEventListener("click", () => toggleChat(false));
 
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && chatOpen) toggleChat(false);
+});
+
+document.addEventListener("click", e => {
+  if (chatOpen && !chatWin.contains(e.target) && !chatFab.contains(e.target)) {
+    toggleChat(false);
+  }
+});
+
 chatInput.addEventListener("keydown", e => {
   if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); chatSendMsg(); }
 });
@@ -227,7 +237,8 @@ function chatShowSuggestBtn() {
   btn.id = "chat-suggest-btn";
   btn.className = "chat-suggest-btn";
   btn.textContent = "Suggest questions";
-  btn.onclick = () => {
+  btn.onclick = (e) => {
+    e.stopPropagation();
     btn.remove();
     chatChips.style.display = "flex";
     chatScrollBottom();
@@ -241,13 +252,14 @@ function chatShowError() {
   div.className = "msg msg-bot msg-error";
   div.innerHTML = `
     <span>Sorry, I'm having trouble connecting right now. You can also <a href="mailto:mahirhasancse@gmail.com" class="chat-error-link">email Mahir directly</a>.</span>
-    <button class="chat-retry-btn" onclick="chatRetry(this)">↺ Retry</button>
+    <button class="chat-retry-btn" onclick="chatRetry(event, this)">↺ Retry</button>
   `;
   chatMsgs.appendChild(div);
   chatScrollBottom();
 }
 
-function chatRetry(btn) {
+function chatRetry(e, btn) {
+  e.stopPropagation();
   btn.closest(".msg-error").remove();
   chatSendQuestion(lastQuestion);
 }

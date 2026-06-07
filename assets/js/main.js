@@ -118,6 +118,8 @@ function toggleChat(open) {
   } else {
     chatWin.style.bottom = "";
     chatWin.style.maxHeight = "";
+    chatWin.style.width = "";
+    chatWin.style.right = "";
   }
 }
 
@@ -129,14 +131,26 @@ if (window.visualViewport) {
     if (keyboardHeight > 50) {
       chatWin.style.bottom = (keyboardHeight + 8) + "px";
       chatWin.style.maxHeight = (vv.height - 16) + "px";
+      chatWin.style.width = (vv.width - 32) + "px";
+      chatWin.style.right = "16px";
     } else {
       chatWin.style.bottom = "";
       chatWin.style.maxHeight = "";
+      chatWin.style.width = "";
+      chatWin.style.right = "";
     }
     chatScrollBottom();
   }
   window.visualViewport.addEventListener("resize", adjustChatForKeyboard);
+  window.visualViewport.addEventListener("scroll", adjustChatForKeyboard);
 }
+
+// Prevent background page scroll when chat is open on touch devices
+document.addEventListener("touchmove", function(e) {
+  if (chatOpen && !chatWin.contains(e.target)) {
+    e.preventDefault();
+  }
+}, { passive: false });
 
 chatFab.addEventListener("click", () => toggleChat(!chatOpen));
 document.getElementById("chat-header").addEventListener("click", () => toggleChat(false));

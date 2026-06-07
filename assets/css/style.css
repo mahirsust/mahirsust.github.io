@@ -669,7 +669,7 @@ footer {
   .nav-links a { font-size: 12px; padding: 0.35rem 0.5rem; }
 }
 @media(max-width:900px){
-  body.chat-open { overflow: hidden; }
+  body.chat-open { overflow: hidden; overscroll-behavior: none; }
 
   .nav-hamburger { display: flex; }
   .nav-links {

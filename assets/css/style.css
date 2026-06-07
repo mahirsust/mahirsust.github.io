@@ -621,9 +621,13 @@ footer {
   gap: 1.5rem;
 }
 
+.footer-left {}
 .footer-name { font-family: var(--display); font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
 .footer-tagline { font-size: 12px; color: #6b7280; }
 
+
+
+.footer-right {}
 .footer-socials { display: flex; gap: 0.5rem; }
 .footer-social-btn {
   width: 36px; height: 36px;

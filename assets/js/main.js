@@ -82,21 +82,40 @@ document.querySelectorAll('a[href^="mailto"]').forEach(function(link) {
 // Chatbot widget
 const RAG_API_URL = "https://mahirsust-portfolio-rag.hf.space/chat";
 
-const chatFab     = document.getElementById("chat-fab");
-const chatWin     = document.getElementById("chat-window");
-const chatMsgs    = document.getElementById("chat-messages");
-const chatInput   = document.getElementById("chat-input");
-const chatSend    = document.getElementById("chat-send");
-const chatChips   = document.getElementById("chat-chips");
-let   chatOpen    = false;
-let   chatLoading = false;
+const chatFab       = document.getElementById("chat-fab");
+const chatWin       = document.getElementById("chat-window");
+const chatMsgs      = document.getElementById("chat-messages");
+const chatInput     = document.getElementById("chat-input");
+const chatSend      = document.getElementById("chat-send");
+const chatChips     = document.getElementById("chat-chips");
+const chatCharCount = document.getElementById("chat-char-count");
+let   chatOpen      = false;
+let   chatLoading   = false;
+let   lastQuestion  = "";
 
-chatFab.addEventListener("click", () => {
-  chatOpen = !chatOpen;
+chatInput.addEventListener("input", () => {
+  const len = chatInput.value.length;
+  const max = 300;
+  if (len === 0) {
+    chatCharCount.className = "";
+    chatCharCount.textContent = "";
+  } else {
+    chatCharCount.textContent = `${len} / ${max}`;
+    if (len >= max - 20)       chatCharCount.className = "danger visible";
+    else if (len >= max - 60)  chatCharCount.className = "warn visible";
+    else                       chatCharCount.className = "visible";
+  }
+});
+
+function toggleChat(open) {
+  chatOpen = open;
   chatWin.classList.toggle("open", chatOpen);
   chatFab.classList.toggle("open", chatOpen);
   if (chatOpen) { chatInput.focus(); chatScrollBottom(); }
-});
+}
+
+chatFab.addEventListener("click", () => toggleChat(!chatOpen));
+document.getElementById("chat-header").addEventListener("click", () => toggleChat(false));
 
 chatInput.addEventListener("keydown", e => {
   if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); chatSendMsg(); }
@@ -113,10 +132,51 @@ function chatScrollBottom() {
   chatMsgs.scrollTop = chatMsgs.scrollHeight;
 }
 
+function renderMarkdown(text) {
+  // Escape HTML first to prevent XSS
+  let html = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+  // Convert bullet lists (consecutive lines starting with - or *)
+  const lines = html.split("\n");
+  const out = [];
+  let inList = false;
+  for (const line of lines) {
+    const li = line.match(/^[-*]\s+(.+)/);
+    if (li) {
+      if (!inList) { out.push("<ul>"); inList = true; }
+      out.push(`<li>${li[1]}</li>`);
+    } else {
+      if (inList) { out.push("</ul>"); inList = false; }
+      out.push(line);
+    }
+  }
+  if (inList) out.push("</ul>");
+  html = out.join("\n");
+
+  // Inline formatting
+  html = html
+    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.*?)\*/g, "<em>$1</em>")
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+    .replace(/\n\n/g, "<br><br>")
+    .replace(/\n/g, "<br>");
+
+  return html;
+}
+
 function chatAddMsg(text, role) {
   const div = document.createElement("div");
   div.className = `msg msg-${role}`;
-  div.textContent = text;
+  if (role === "bot") {
+    div.innerHTML = renderMarkdown(text);
+  } else {
+    div.textContent = text;
+  }
   chatMsgs.appendChild(div);
   chatScrollBottom();
   return div;
@@ -136,16 +196,41 @@ function chatHideTyping() {
   if (t) t.remove();
 }
 
-async function chatSendMsg() {
-  const question = chatInput.value.trim();
-  if (!question || chatLoading) return;
+function chatShowSuggestBtn() {
+  const existing = document.getElementById("chat-suggest-btn");
+  if (existing) existing.remove();
+  const btn = document.createElement("button");
+  btn.id = "chat-suggest-btn";
+  btn.className = "chat-suggest-btn";
+  btn.textContent = "Suggest questions";
+  btn.onclick = () => {
+    btn.remove();
+    chatChips.style.display = "flex";
+    chatScrollBottom();
+  };
+  chatMsgs.appendChild(btn);
+  chatScrollBottom();
+}
 
-  chatChips.style.display = "none";
-  chatInput.value = "";
+function chatShowError() {
+  const div = document.createElement("div");
+  div.className = "msg msg-bot msg-error";
+  div.innerHTML = `
+    <span>Sorry, I'm having trouble connecting right now. You can also <a href="mailto:mahirhasancse@gmail.com" class="chat-error-link">email Mahir directly</a>.</span>
+    <button class="chat-retry-btn" onclick="chatRetry(this)">↺ Retry</button>
+  `;
+  chatMsgs.appendChild(div);
+  chatScrollBottom();
+}
+
+function chatRetry(btn) {
+  btn.closest(".msg-error").remove();
+  chatSendQuestion(lastQuestion);
+}
+
+async function chatSendQuestion(question) {
   chatLoading = true;
   chatSend.disabled = true;
-
-  chatAddMsg(question, "user");
   chatShowTyping();
 
   try {
@@ -158,16 +243,28 @@ async function chatSendMsg() {
     const data = await res.json();
     chatHideTyping();
     chatAddMsg(data.answer, "bot");
+    chatShowSuggestBtn();
   } catch (err) {
     chatHideTyping();
-    chatAddMsg(
-      "Sorry, I'm having trouble connecting right now. You can reach Mahir directly at mahirhasancse@gmail.com.",
-      "bot"
-    );
+    chatShowError();
     console.error("RAG API error:", err);
   } finally {
     chatLoading = false;
     chatSend.disabled = false;
     chatInput.focus();
   }
+}
+
+async function chatSendMsg() {
+  const question = chatInput.value.trim();
+  if (!question || chatLoading) return;
+
+  chatChips.style.display = "none";
+  chatInput.value = "";
+  chatCharCount.className = "";
+  chatCharCount.textContent = "";
+  lastQuestion = question;
+
+  chatAddMsg(question, "user");
+  chatSendQuestion(question);
 }
